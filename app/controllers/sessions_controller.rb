@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
 
   def auth_fail
     p "! @ % " * 30
+    # You should still have access to the params object in views, I think
     @params = params
     render :fail
   end

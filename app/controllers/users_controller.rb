@@ -28,6 +28,8 @@ class UsersController < ApplicationController
   private
 
 
+  # Looks like this is repeated in the EventsController. You should be able to
+  # move it to the ApplicationController and still reference it here on line 5.
   def authenticate_user!
     redirect_to login_path unless current_user
   end

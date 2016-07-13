@@ -6,6 +6,10 @@ class EventsController < ApplicationController
   EVENT_UPDATE_ERROR = { :errors => "ERROR: Event update failed." }
 
   def cards
+    # It might be worth moving this into a scope in the model to make it a little
+    # easier to read. If I were coming into this, something like
+    # Event.most_recent (or something?) is easier to understand what's going on
+    # quickly.
     @events = Event.order(schedule: :desc).last(8).reverse
     respond_to do |format|
       format.html { render :cards }
@@ -22,6 +26,10 @@ class EventsController < ApplicationController
   end
 
   def duplicate_card
+    # As with my comment below, Rails at least _used_ to render a 404
+    # automatically if a RecordNotFound exception was raised. #find raises a
+    # RecordNotFound exception if something isn't found.
+    # I have more opinions about using #find_by_id.
     @event = Event.find_by_id(params[:format])
     render :edit
   end
@@ -54,6 +62,12 @@ class EventsController < ApplicationController
     else
       respond_to do |format|
         format.html { render :show }
+        # Why not just respond with a 404? In fact, if you use #find instead of
+        # #find_by_id, I believe Rails may automatically respond with a 404,
+        # making this entire block unnecessary :)
+        # Even if that's not the case, I like just sending back a status code.
+        # They're trying to find an event. Status 404 says exactly what you want
+        # without having to parse a response.
         format.json { render json: EVENT_NOT_FOUND_ERROR }
       end
     end
@@ -76,6 +90,10 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    # The timezone is already set in application.rb, does it need to be set here
+    # as well? Genuinely wondering, there might be some weird workaround going
+    # on here. If there is, I'd probably put a comment about it just so I
+    # remember what it is in the future.
     Time.zone = "Pacific Time (US & Canada)"
     @event.schedule = Time.zone.parse(event_params['schedule'])
     if @event.save
@@ -105,6 +123,7 @@ class EventsController < ApplicationController
       else
         respond_to do |format|
           format.html { render :edit }
+          # You might be able to use just a status here as well.
           format.json { render json: EVENT_UPDATE_ERROR }
         end
       end
