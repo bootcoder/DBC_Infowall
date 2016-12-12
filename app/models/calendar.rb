@@ -34,13 +34,19 @@ class Calendar
   end
 
   def sanitize_img_url(staff_name, event)
+    p staff_name
+    p event.raw["creator"]["email"]
     return "jenny.jpg" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com"
+    return "jenny.jpg" if event.raw["creator"]["email"] == "jenny@devbootcamp.com"
     return "dbc.jpg" if staff_name == nil || staff_name == ""
     sanitize_name(staff_name, event).split(" ")[0].downcase.concat(".jpg")
   end
 
   def sanitize_name(name, event)
-    return "Jenny" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com"
+    # byebug
+    return "" if name == "Jenny" || name == "Jenny Engard"
+    return "" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com"
+    return "" if event.raw["creator"]["email"] == "jenny@devbootcamp.com"
     return "Katy" if event.title.downcase.include?('yoga')
     name
   end
