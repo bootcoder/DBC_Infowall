@@ -43,14 +43,14 @@ var renderReactPeople = function (data) {
 
 
 var getEvents = function () {
-  // console.log('hit getEvents')
+  console.log('hit getEvents')
   $.get('https://dbc-infowall-api.herokuapp.com/events', function( data ) {
     renderReactEvents(data)
   })
 }
 
 var getMentors = function () {
-  // console.log('hit getMentors')
+  console.log('hit getMentors')
   $.get('https://dbc-infowall-api.herokuapp.com/mentors', function (data) {
     if (data === null || data === undefined || data.length === 0) { return getEvents() }
     renderReactPeople(data)
@@ -58,33 +58,34 @@ var getMentors = function () {
 }
 
 var getStaff = function () {
-  // console.log('hit getStaff')
+  console.log('hit getStaff')
   $.get('https://dbc-infowall-api.herokuapp.com/staff', function (data) {
+    console.log(data)
     if (data === null || data === undefined || data.length === 0) { return getEvents() }
     renderReactPeople(data)
   })
 }
 
 var getToday = function () {
-  // console.log('hit getToday')
+  console.log('hit getToday')
   $.get('https://dbc-infowall-api.herokuapp.com/today', function (data) {
-    // console.log(data)
+    console.log(data)
     if (data === null || data === undefined || data.length === 0) { return getEvents() }
     renderReactEvents(data)
   })
 }
 
 var getWorkshops = function () {
-  // console.log('hit getWorkshops')
+  console.log('hit getWorkshops')
   $.get('https://dbc-infowall-api.herokuapp.com/workshops', function (data) {
-    // console.log(data)
+    console.log(data)
     if (data === null || data === undefined || data.length === 0) { return getEvents() }
     renderReactEvents(data)
   })
 }
 
 var getCalendar = function () {
-  // console.log('hit getCalendar')
+  console.log('hit getCalendar')
   $.get( '/calendars.json', function (data) {
     renderReactEvents(data)
   })
