@@ -105,6 +105,10 @@ var cycleCardView = function (counter) {
     getMentors()
     getCardsIf(counter)
   } else if (counter === 3) {
+    counter += 1
+    getEvents()
+    getCardsIf(counter)
+  } else if (counter === 4) {
     counter = 0
     getWorkshops()
     getCardsIf(counter)
