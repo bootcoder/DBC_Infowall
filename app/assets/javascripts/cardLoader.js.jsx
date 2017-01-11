@@ -112,6 +112,7 @@ var cycleCardView = function (counter) {
 }
 
 var getCardsIf = function (counter) {
+  console.log('in get cards if')
   if (window.location.pathname === '/events') {
     getEvents()
   } else if (window.location.pathname === '/mentors') {
