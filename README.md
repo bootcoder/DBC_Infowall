@@ -1,5 +1,12 @@
 # [DBC Infowall](http://dbc-infowall.herokuapp.com)
 
+## Deprecated Info
+The API portion of this app has been deprecated. Find the decoupled API @ [dbc-infowall-api](https://github.com/bootcoder/dbc-infowall-api)
+
+The Frontend React portion remains the live, consuming the new API. Eventually I plan to replace with [dbc-infowall-frontend](https://github.com/bootcoder/dbc-infowall-frontend) as a standalone React app.
+
+When the frontend app is complete this app will be permanently deprecated.
+
 ### Will display various information regarding DBC student facing events.
 
   - Upcoming DBC Events
@@ -9,9 +16,9 @@
 ### Feature Request
 - Mentors currently on-site (DONE)
 - Events in space (DONE)
-- Staff Currently on-site
+- Staff Currently on-site (DONE)
 - Map
-- Phase specific info (for when we have multiple displays in the space...)
+- Phase specific info (if we get multiple displays in the space...)
   - EX p1 learning objectives per day
 
 ### Spinning Up
