@@ -17,5 +17,3 @@ class DeputyAdapter
   end
 
 end
-
-

@@ -66,5 +66,6 @@ gem 'omniauth-google-oauth2'
 gem 'google_calendar'
 gem 'dotenv'
 gem 'httparty'
+gem 'google_drive'
 # gem 'pry-byebug'
 

@@ -15,7 +15,7 @@ var PersonCardPhase = React.createClass({
     }
 
     return (
-      <p className={"center white-text person-text pad-top-1P height-50px "+bgColor}>Mentor: {this.props.person.phase}</p>
+      <p className={"center white-text person-text pad-top-1P height-50px "+bgColor}>{this.props.person.staff_type}: {this.props.person.phase}</p>
     );
 
   }

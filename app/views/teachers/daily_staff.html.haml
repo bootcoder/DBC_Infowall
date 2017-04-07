@@ -1,0 +1,4 @@
+- if @daily_staff.class == Hash
+  - @daily_staff.each do |day, lead|
+    %h2
+      = "#{day}: #{lead}"

@@ -1,4 +1,7 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :teacher do
+    
+  end
+
   factory :calendar do
 
   end
