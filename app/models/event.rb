@@ -5,10 +5,9 @@ class Event < ActiveRecord::Base
   # validates_uniqueness_of :calendar_id
   # validates_presence_of :event_type
   # validates_presence_of :schedule
+  # validates_presence_of :description
 
   validates :location, length: { maximum: 18}
-
-  # validates_presence_of :description
   validates_presence_of :location
   validates_presence_of :title
   # validates_presence_of :organizer
